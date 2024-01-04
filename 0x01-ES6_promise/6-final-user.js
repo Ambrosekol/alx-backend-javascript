@@ -11,5 +11,10 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((results) => results.map((result) => ({
       status: result.status,
       value: result.status === 'fulfilled' ? result.value : result.reason,
-    })));
+    })))
+    .catch((error) => {
+      // Handle any errors during the process
+      console.error('Error during signup process:', error);
+      throw error; // Propagate the error further if needed
+    });
 }
