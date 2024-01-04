@@ -1,8 +1,8 @@
 import Currency from './3-currency';
 
 export default class Pricing {
-  constructor(amount, currency = Currency) {
-    if (typeof amount !== 'number' || ) {
+  constructor(amount, currency) {
+    if (typeof amount !== 'number' || !(currency instanceof Currency)) {
       throw new TypeError('invalid input detected');
     }
     this._amount = amount;
@@ -25,7 +25,7 @@ export default class Pricing {
   }
 
   set currency(curObj) {
-    if (curObj.prototype.name !== 'Currency') {
+    if (!(curObj instanceof Currency)) {
       throw new TypeError('Invalid Input');
     }
     this._currency = curObj;

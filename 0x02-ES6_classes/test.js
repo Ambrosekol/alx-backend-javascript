@@ -1,3 +1,6 @@
-import initializeRooms from './1-make_classrooms.js';
+import Pricing from './4-pricing.js';
+import Currency from './3-currency.js';
 
-console.log(initializeRooms());
+const p = new Pricing(100, new Currency("EUR", "Euro"))
+console.log(p);
+console.log(p.displayFullPrice());
