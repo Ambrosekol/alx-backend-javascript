@@ -1,6 +1,6 @@
 export default function updateStudentGradeByCity(students = [], city = '', newGrades = []) {
   const filtered = students.filter((obj) => obj.location === city);
-  return newGrades.map((obj) => {
+  return Array(...new Set(newGrades.map((obj) => {
     const values = [];
     for (const student of filtered) {
       if (student.id === obj.id) {
@@ -11,5 +11,5 @@ export default function updateStudentGradeByCity(students = [], city = '', newGr
       values.push(student);
     }
     return values;
-  });
+  })));
 }
