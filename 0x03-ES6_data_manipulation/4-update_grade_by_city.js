@@ -1,15 +1,17 @@
 export default function updateStudentGradeByCity(students = [], city = '', newGrades = []) {
+  for (const val of students) {
+    val.grade = 'N/A';
+  }
   const filtered = students.filter((obj) => obj.location === city);
-  return Array(...new Set(newGrades.map((obj) => {
-    const values = [];
-    for (const student of filtered) {
-      if (student.id === obj.id) {
-        student.grade = obj.grade;
-      } else {
-        student.grade = 'N/A';
+  // console.log(filtered);
+  for (let i = 0; i < filtered.length; i += 1) {
+    newGrades.map((newGrades) => {
+      const _ = [];
+      if (newGrades.studentId === filtered[i].id) {
+        filtered[i].grade = newGrades.grade;
       }
-      values.push(student);
-    }
-    return values;
-  })));
+      return _;
+    });
+  }
+  return filtered;
 }
