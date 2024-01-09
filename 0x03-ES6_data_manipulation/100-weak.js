@@ -1,17 +1,12 @@
 const weakmap = new WeakMap();
 
-function queryAPI(obj) {
-  if (!weakmap.has(obj)) {
-    weakmap.set(obj, 0);
+function queryAPI(endpoint) {
+  if (!weakmap.has(endpoint)) {
+    weakmap.set(endpoint, 0);
   }
-
-  const ct = weakmap.get(obj) + 1;
-
-  weakmap.set(obj, ct);
-
-  if (weakmap.get(obj) >= 5) {
+  weakmap.set(endpoint, weakmap.get(endpoint) + 1);
+  if (weakmap.get(endpoint) >= 5) {
     throw new Error('Endpoint load is high');
   }
 }
-
 export { weakmap, queryAPI };
