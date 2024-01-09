@@ -1,7 +1,7 @@
 export default function getListStudentIds(listArg = []) {
-  if (typeof listArg[0] === 'object') {
-    const listA = listArg.map((val) => val.id);
-    return listA;
+  let listA = [];
+  if (listArg instanceof Array) {
+    listA = listArg.map((val) => val.id);
   }
-  return [];
+  return listA;
 }
