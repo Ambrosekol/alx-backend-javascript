@@ -1,6 +1,3 @@
-/**
- * This is a standalone program that reads stdin
- */
 const process = require('process');
 
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
