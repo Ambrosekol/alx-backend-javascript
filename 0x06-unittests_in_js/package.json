@@ -1,0 +1,14 @@
+{
+  "name": "unbittests",
+  "version": "1.0.0",
+  "description": "unit tests for ALX",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Ambrose",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.3.0"
+  }
+}
