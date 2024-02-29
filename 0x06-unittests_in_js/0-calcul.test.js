@@ -1,8 +1,35 @@
 var calcul = require("./0-calcul.js");
 const assert = require("assert");
 
-describe("calculateNumber", function () {
-    it("should say hello", function () {
+describe("calculate", function () {
+    it("should equal 5", function () {
         assert.equal(calcul(2, 3), 5)
-    })
+    });
+    it('rounding down b\'s floating point fractional number', () => {
+        assert.strictEqual(calcul(1.0, 2.4), 3);
+      });
+    
+      it('rounding down a and b\'s floating point fractional number', () => {
+        assert.strictEqual(calcul(1.4, 2.4), 3);
+      });
+    
+      it('rounding down a\'s floating point fractional number', () => {
+        assert.strictEqual(calcul(1.4, 2.0), 3);
+      });
+    
+      it('rounding up b\'s floating point fractional numbers', () => {
+        assert.strictEqual(calcul(1.0, 2.5), 4);
+      });
+    
+      it('rounding up a and b\'s floating point fractional numbers', () => {
+        assert.strictEqual(calcul(2.6, 2.5), 6);
+      });
+    
+      it('rounding up a\'s floating point fractional numbers', () => {
+        assert.strictEqual(calcul(2.6, 2.0), 5);
+      });
+    
+      it('rounding down a and b floating point fractional numbers with trailing 9\'s', () => {
+        assert.strictEqual(calcul(2.499999, 3.499999), 5);
+      });
 })
